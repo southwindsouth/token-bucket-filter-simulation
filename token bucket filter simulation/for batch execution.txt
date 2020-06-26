@@ -1,0 +1,20 @@
+
+for /L %A in (5, 5, 95) do python new_mm1.py -M  1 -A %A -S 100 --no-trace >> mm1.out 
+python plot_mm1.py
+for /L %A in (5, 5, 95) do python new_mm2.py -M  2 -A %A -S 50 --no-trace >> mm2.out 
+python plot_mm2.py
+for /L %A in (5, 5, 95) do python new_mm5.py -M  5 -A %A -S 20 --no-trace >> mm5.out
+python plot_mm5.py
+
+PS:these commands for batch execution,we should run them one by one.
+
+for /L %S in (3000, 500, 8000) do python queue_onoff_traffic.py -T 2 -S %S --no-trace>>averagewaiting.out
+
+for /L %S in (1000, 500, 5000) do python queue_onoff_2.py -T 2 -S %S --no-trace>>averagewaiting.out
+
+for /L %S in (100, 10, 5000) do python queue_onoff_2.py -T 2 -S %S --no-trace>>averagewaiting.out
+
+ python queue_onoff_2.py -T 2 -S 5000 --no-trace>>averagewaiting.out
+
+
+python queue_onoff_3.py -T 2 -S 1000 >>averagewaiting.out
